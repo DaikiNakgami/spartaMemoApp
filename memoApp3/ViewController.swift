@@ -22,6 +22,16 @@ class ViewController: UIViewController {
         // iPhoneの端末内にmemotextView.textの値をidという名前をつけて保存する。
         ud.set(memoTextView.text, forKey: "id")
     }
+    @IBAction func tappedDelete(_ sender: Any) {
+        // データを保存するためのUserDefaultインスタンスを生成する
+        let ud = UserDefaults.standard
+        
+        // iPhone端末内に"id"という名前で保存されている値(オブジェクト)を削除する
+        ud.removeObject(forKey: "id")
+        
+        // textViewに表示されている文字を空にする
+        memoTextView.text = ""
+    }
     
     // 画面を描画する前に実行される関数
     override func viewWillAppear(_ animated: Bool) {
