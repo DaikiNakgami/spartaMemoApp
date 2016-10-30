@@ -39,11 +39,12 @@ class ViewController: UIViewController {
         // データを保存するためのUserDefaultインスタンスを生成する
         let ud = UserDefaults.standard
         
-        // もし、iPhone端末内に保存されている値がnilではなかったら, (値が存在しなかったら)
-
+        // もし、iPhone端末内に保存されている値がnilではなかったら, (空ではなかったら)
+        if ud.object(forKey: "id") != nil {
             
             // iPhone端末内にidという名前で保存した値をString(文字列)として読み込み、textViewに表示させる
             memoTextView.text = ud.object(forKey: "id") as! String!
+        }
         
     }
     
